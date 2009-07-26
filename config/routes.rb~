@@ -1,8 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :categories do |category|
+  map.resources :categories, 
+								:collection => { :chart => :get } do |category|
+
 		  category.resources :subcategories do |subcategory|
 			  subcategory.resources :items
 			end
+
 	end
 	
 	map.resources :year_result

@@ -2,6 +2,8 @@
 
 <h3>Para <%= Date.current.month %>/<%= Date.current.year %></h3>
 
+<%= link_to 'Gráfico: para onde vai o meu dinheiro?', chart_categories_path %>
+
 <table>
 <% if @categories.length > 0 %>
 	<tr class="income">

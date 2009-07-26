@@ -1,17 +1,8 @@
 class CategoriesController < ApplicationController
-	def year
-    @categories = Category.all(:order => "income desc")
-		Category.find_by_all_months(@categories)
 
-		@sum_income = Category.sum_income_or_charge(@categories, true)
-		@sum_charge = Category.sum_income_or_charge(@categories, false)
-		@balance = @sum_income - @sum_charge
-
-    respond_to do |format|
-      format.html # year_result.html.erb
-      format.xml  { render :xml => @categories }
-    end
-  end
+	def chart
+		Category.all_by_income()
+	end
 
   # GET /categories
   # GET /categories.xml

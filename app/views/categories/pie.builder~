@@ -1,0 +1,11 @@
+xml = Builder::XmlMarkup.new(:indent=>0)
+options = {
+ :caption => "Para onde vai o meu dinheiro? #{Date.current.month}/#{Date.current.year}",
+ :showNames => "1",
+ :decimalPrecision => "0"
+}
+xml.graph(options) do
+  @charge_categories.each do |category|
+     xml.set(:name => category.name, :value => category.sum, :color=>''+get_FC_color)
+  end
+end

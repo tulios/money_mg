@@ -9,6 +9,9 @@
 	<%= stylesheet_link_tag 'style' %>
 
 	<%= javascript_include_tag :defaults %>
+	<%= javascript_include_tag 'jquery.price_format.1.3' %>
+	<%= javascript_include_tag "FusionCharts"%>
+
 </head>
 <body>
 

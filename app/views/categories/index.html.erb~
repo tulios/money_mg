@@ -2,6 +2,8 @@
 
 <h3>Para <%= Date.current.month %>/<%= Date.current.year %></h3>
 
+<%= link_to 'Gráfico: para onde vai o meu dinheiro?', {:action=>"chart"} %>
+
 <table>
 <% if @categories.length > 0 %>
 	<tr class="income">
@@ -38,8 +40,8 @@
 		<tr class="charge">
 		<% end %>
 		  <td><%=h category.name %></td>
-		  <td><%= link_to 'Edit', edit_category_path(category) %></td>
-		  <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
+		  <td><%= link_to 'Editar', edit_category_path(category) %></td>
+		  <td><%= link_to 'Apagar', category, :confirm => 'Are you sure?', :method => :delete %></td>
 			<td>
 				<%= link_to 'Nova subcategoria', 
 										 new_category_subcategory_path(category.id), :class => "add_subcategory" %>
