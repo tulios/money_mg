@@ -1,0 +1,28 @@
+<h1>Listing items</h1>
+
+<table>
+  <tr>
+    <th>Subcategory</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Date</th>
+    <th>Value</th>
+  </tr>
+
+<% @items.each do |item| %>
+  <tr>
+    <td><%=h item.subcategory %></td>
+    <td><%=h item.name %></td>
+    <td><%=h item.description %></td>
+    <td><%=h item.date %></td>
+    <td><%=h item.value %></td>
+    <td><%= link_to 'Show', item %></td>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New item', new_item_path %>

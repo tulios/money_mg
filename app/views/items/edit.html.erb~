@@ -1,0 +1,7 @@
+<h1>Item</h1>
+
+<%= render :partial => 'form', :locals => {:category => @category, 
+																					 :subcategory => @subcategory, 
+																					 :item => @item} %>
+<%= link_to 'Voltar', categories_path %>
+

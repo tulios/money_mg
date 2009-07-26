@@ -1,0 +1,93 @@
+<h1>Balanço de <%= Date.current.year %></h1>
+
+<table class="tabela">
+	<% if @categories.length > 0 %>
+		<tr>
+			<th>Categoria</th>
+			<th>Subcategoria</th>			
+			<th>Janeiro</th>
+			<th>Fevereiro</th>
+			<th>Março</th>
+			<th>Abril</th>
+			<th>Maio</th>
+			<th>Junho</th>
+			<th>Julho</th>
+			<th>Agosto</th>
+			<th>Setembro</th>
+			<th>Outubro</th>
+			<th>Novembro</th>
+			<th>Dezembro</th>
+			<th>Total</th>
+		</tr>
+		<% @categories.each do |category| %>
+			<% if category.income? %>
+				<tr class="income">
+			<% else %>
+				<tr class="charge">
+			<% end %>
+				<td colspan="2"><%= category.name %></td>
+				<td align="right" nowrap="nowrap"><strong><%= currency(category.sum_for_month('01')) %></strong></td>
+				<td align="right" nowrap="nowrap"><strong><%= currency(category.sum_for_month('02')) %></strong></td>
+				<td align="right" nowrap="nowrap"><strong><%= currency(category.sum_for_month('03')) %></strong></td>
+				<td align="right" nowrap="nowrap"><strong><%= currency(category.sum_for_month('04')) %></strong></td>
+				<td align="right" nowrap="nowrap"><strong><%= currency(category.sum_for_month('05')) %></strong></td>
+				<td align="right" nowrap="nowrap"><strong><%= currency(category.sum_for_month('06')) %></strong></td>
+				<td align="right" nowrap="nowrap"><strong><%= currency(category.sum_for_month('07')) %></strong></td>
+				<td align="right" nowrap="nowrap"><strong><%= currency(category.sum_for_month('08')) %></strong></td>
+				<td align="right" nowrap="nowrap"><strong><%= currency(category.sum_for_month('09')) %></strong></td>
+				<td align="right" nowrap="nowrap"><strong><%= currency(category.sum_for_month('10')) %></strong></td>
+				<td align="right" nowrap="nowrap"><strong><%= currency(category.sum_for_month('11')) %></strong></td>
+				<td align="right" nowrap="nowrap"><strong><%= currency(category.sum_for_month('12')) %></strong></td>
+				<td align="right" nowrap="nowrap"><strong><%= currency(category.sum) %></strong></td>
+			</tr>
+			<% category.subcategories.each do |subcategory| %>
+				<tr>
+					<td></td>
+					<td><%= subcategory.name %></td>
+					<td align="right" nowrap="nowrap"><%= currency(subcategory.sum_for_month('01')) %></td>
+					<td align="right" nowrap="nowrap"><%= currency(subcategory.sum_for_month('02')) %></td>
+					<td align="right" nowrap="nowrap"><%= currency(subcategory.sum_for_month('03')) %></td>
+					<td align="right" nowrap="nowrap"><%= currency(subcategory.sum_for_month('04')) %></td>
+					<td align="right" nowrap="nowrap"><%= currency(subcategory.sum_for_month('05')) %></td>
+					<td align="right" nowrap="nowrap"><%= currency(subcategory.sum_for_month('06')) %></td>
+					<td align="right" nowrap="nowrap"><%= currency(subcategory.sum_for_month('07')) %></td>
+					<td align="right" nowrap="nowrap"><%= currency(subcategory.sum_for_month('08')) %></td>
+					<td align="right" nowrap="nowrap"><%= currency(subcategory.sum_for_month('09')) %></td>
+					<td align="right" nowrap="nowrap"><%= currency(subcategory.sum_for_month('10')) %></td>
+					<td align="right" nowrap="nowrap"><%= currency(subcategory.sum_for_month('11')) %></td>
+					<td align="right" nowrap="nowrap"><%= currency(subcategory.sum_for_month('12')) %></td>
+					<td align="right" nowrap="nowrap"><%= currency(subcategory.sum) %></td>
+				</tr>
+			<% end %>
+		<% end %>
+		
+		<tr class="income">
+				<td align="left" colspan="2">Total de receitas:</td>
+				<td colspan="13" align="right">
+					<strong><%= currency(@sum_income) %></strong>
+				</td>
+			</tr>
+			<tr class="charge">
+				<td align="left" colspan="2">Total de despesas:</td>
+				<td colspan="13" align="right">
+					<strong><%= currency(@sum_charge) %></strong>
+				</td>
+			</tr>
+			<tr class="balance">
+				<td align="left" colspan="2">Saldo:</td>
+					<td align="right" colspan="13">
+					<% if @balance < 0 %>
+						<span style="color: #B22222;">
+					<% end %>
+						<strong><%= currency(@balance) %></strong>
+					</span>
+				</td>
+			</tr>
+
+	<% else %>
+		<tr>
+			<td><i>Nenhuma categoria encontrada.</i></td>
+		</tr>
+	<% end %>
+</table>
+

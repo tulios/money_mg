@@ -1,0 +1,36 @@
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2009-07-25 13:34:20) [GET]
+Rendering template within layouts/application
+Rendering categories/index
+Completed in 464ms (View: 324, DB: 23) | 200 OK [http://0.0.0.0/categories]
+
+
+Processing YearResultController#index (for 127.0.0.1 at 2009-07-25 13:34:22) [GET]
+Rendering template within layouts/application
+Rendering year_result/index
+Completed in 1175ms (View: 648, DB: 54) | 200 OK [http://0.0.0.0/year_result]
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2009-07-25 13:34:26) [GET]
+Rendering template within layouts/application
+Rendering categories/index
+Completed in 247ms (View: 175, DB: 32) | 200 OK [http://0.0.0.0/categories]
+
+
+Processing CategoriesController#new (for 127.0.0.1 at 2009-07-25 13:34:28) [GET]
+Rendering template within layouts/application
+Rendering categories/new
+Completed in 14ms (View: 11, DB: 0) | 200 OK [http://0.0.0.0/categories/new]
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2009-07-25 13:34:31) [GET]
+Rendering template within layouts/application
+Rendering categories/index
+Completed in 672ms (View: 405, DB: 154) | 200 OK [http://0.0.0.0/categories]
+
+
+Processing YearResultController#index (for 127.0.0.1 at 2009-07-25 13:34:49) [GET]
+Rendering template within layouts/application
+Rendering year_result/index
+Completed in 1123ms (View: 829, DB: 61) | 200 OK [http://0.0.0.0/year_result]

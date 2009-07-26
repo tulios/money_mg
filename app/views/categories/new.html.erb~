@@ -1,0 +1,17 @@
+<h1>Nova categoria</h1>
+
+<% form_for(@category) do |f| %>
+  <%= f.error_messages %>
+	
+	<table>
+		<tr>
+	    <td><%= f.label :name %></td>
+    	<td><%= f.text_field :name %></td>
+    	<td>Receita?</td>
+	    <td><%= f.check_box :income %></td>
+	    <td colspan="2" align="right"><%= f.submit 'Salvar' %></td>
+		</tr>
+	</table>
+<% end %>
+
+<%= link_to 'Voltar', categories_path %>

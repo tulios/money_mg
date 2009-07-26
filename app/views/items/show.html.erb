@@ -1,0 +1,34 @@
+<h1>Item</h1>
+
+De <u><%= @item.subcategory.category.name %></u> em <u><%= @item.subcategory.name %></u>
+
+<table>
+	<tr>
+		<td>Nome:</td>
+		<td><%=h @item.name %></td>
+	</tr>
+	<tr>
+		<td>Descrição:</td>
+		<td><%=h @item.description %></td>
+	</tr>
+	<tr>
+		<td>Data:</td>
+		<td><%=h format_date(@item.date) %></td>
+	</tr>
+	<tr>
+		<td>Valor:</td>
+		<td>
+			<% if @item.subcategory.category.income? %>
+				<span style="color: blue;">
+			<% else %>
+				<span style="color: red;">
+			<% end %>
+				<%= currency(@item.value) %>
+				</span>
+		</td>
+	</tr>
+</table>
+
+<br />
+<%= link_to 'Voltar', categories_path %>
+<%= link_to 'Editar', edit_category_subcategory_item_path(@item.subcategory.category, @item.subcategory, @item) %>

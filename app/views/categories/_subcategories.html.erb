@@ -1,0 +1,19 @@
+<% if category.subcategories.length > 0 %>
+		<% category.subcategories.each do |subcategory| %>
+			<tr>
+				<td></td>
+				<td class="subcategories"><%= subcategory.name %></td>
+				<td class="subcategories">
+					<%= link_to 'Apagar', {:action => :destroy, :controller => "subcategories", :id => subcategory.id}, 
+ 																  :confirm => 'Are you sure?', :method => :delete %>
+				</td>
+				<td class="subcategories">
+					<%= link_to 'Novo item', new_category_subcategory_item_path(category, subcategory), :class => "add_item" %>
+				</td>
+				<td align="right" class="subcategories">
+					<i><%= currency(subcategory.sum) %></i>
+				</td>
+			</tr>
+			<%= render :partial => 'items', :locals => {:subcategory => subcategory} %>
+		<% end %>
+<% end %>

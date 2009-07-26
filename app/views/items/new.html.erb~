@@ -1,0 +1,5 @@
+<h1>Novo item</h1>
+
+
+<%= link_to 'Voltar', categories_path %>
+

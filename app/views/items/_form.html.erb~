@@ -1,0 +1,31 @@
+<%= price_format ['item_value'] %>
+
+Para categoria <u><%= @category.name %></u> na subcategoria <u><%= @subcategory.name %></u>
+
+<% form_for([@category, @subcategory, @item]) do |f| %>
+  <%= f.error_messages %>
+
+	<table>
+		<tr>
+			<td>Nome:</td>
+			<td><%= f.text_field :name, :size => 45 %></td>
+		</tr>
+		<tr>
+			<td>Descrição:</td>
+			<td><%= f.text_area :description, :rows => 5, :cols => 52 %></td>
+		</tr>
+		<tr>
+			<td>Data:</td>
+			<td><%= f.datetime_select :date %></td>
+		</tr>
+		<tr>
+			<td>Valor:</td>
+			<td><%= f.text_field :value, :value => sprintf("%.2f", @item.value) %></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="right"><%= f.submit 'Salvar' %></td>
+			<td></td>
+		</tr>
+	</table>
+    
+<% end %>

@@ -1,0 +1,18 @@
+<h1>Nova subcategoria</h1>
+
+Para Categoria <u><%= @category.name %></u>
+
+<% form_for([@category, @subcategory]) do |f| %>
+  <%= f.error_messages %>
+	
+	<table>
+		<tr>
+			<td>Nome:</td>
+			<td><%= f.text_field :name %></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="right"><%= f.submit 'Salvar' %></td>
+		</tr>
+	</table>
+
+<% end %>

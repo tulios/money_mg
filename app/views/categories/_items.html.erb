@@ -1,0 +1,17 @@
+<% if subcategory.items.length > 0 %>
+	<% subcategory.items.each do |item| %>
+		<tr>
+			<td colspan="2"></td>
+			<td class="items" align="center">
+				<%= link_to (image_tag 'icons/delete_16.png', :border => 0), 
+						{:action => :destroy, :controller => "items", :id => item.id}, 
+             :confirm => 'Are you sure?', :method => :delete %>
+			</td>
+			<td class="items">
+				<%= link_to "#{ item.name }", 
+						category_subcategory_item_path(item.subcategory.category, item.subcategory, item) %>
+			</td>
+			<td class="items" align="right"><%= currency(item.value) %></td>
+		</tr>
+	<% end %>
+<% end %>
