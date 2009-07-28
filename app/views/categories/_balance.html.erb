@@ -1,0 +1,42 @@
+<table width="100%">
+	<tr class="income">
+
+		<td align="left" colspan="4" width="85%">
+			Total de receitas:
+		</td>
+
+		<td colspan="1" align="right">
+			<strong><%= currency(@sum_income) %></strong>
+		</td>
+
+	</tr>
+
+	<tr class="charge">
+
+		<td align="left" colspan="4" width="85%">
+			Total de despesas:
+		</td>
+
+		<td colspan="1" align="right">
+			<strong><%= currency(@sum_charge) %></strong>
+		</td>
+
+	</tr>
+
+	<tr class="balance">
+
+		<td align="left" colspan="4" width="85%">
+			Saldo:
+		</td>
+
+		<td align="right" colspan="1">
+			<% if @balance < 0 %>
+				<span style="color: #B22222;">
+			<% end %>
+				<strong><%= currency(@balance) %></strong>
+			</span>
+		</td>
+
+	</tr>
+
+</table>

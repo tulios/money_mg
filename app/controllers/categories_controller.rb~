@@ -1,7 +1,12 @@
 class CategoriesController < ApplicationController
 
 	def chart
-		Category.all_by_income()
+		@subcategories_chart = params[:subcategories_chart]
+		if @subcategories_chart
+			 @categories = Category.all(:order => "income desc")
+		else
+			@charge_categories = Category.find_all_by_income(false)
+		end
 	end
 
   # GET /categories

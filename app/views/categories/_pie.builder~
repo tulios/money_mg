@@ -5,7 +5,7 @@ options = {
 	:numberPrefix => "R$ ",
 	:formatNumber => 1,
 	:thousandSeparator => ",",
-	:decimalSeparator => ".",
+	:decimalSeparator => "."
 }
 
 xml = Builder::XmlMarkup.new(:indent => 0)

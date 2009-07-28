@@ -8,11 +8,11 @@ a { color: #000000; }
 a:hover { color: #fff; background-color:#000; }
 
 .income {
-	background: blue;
+	background: #4682B4;
 }
 
 .charge {
-	background: red;
+	background: #FF3030;
 }
 
 .subcategories {

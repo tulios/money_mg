@@ -8,11 +8,11 @@ a { color: #000000; }
 a:hover { color: #fff; background-color:#000; }
 
 .income {
-	background: blue;
+	background: #4682B4;
 }
 
 .charge {
-	background: red;
+	background: #B22222;
 }
 
 .subcategories {
@@ -44,3 +44,9 @@ a:hover { color: #fff; background-color:#000; }
 	padding: 0px 5px 3px 22px;
 	background: url(../images/icons/add_item_16.png) no-repeat 2px 1px;
 }
+
+.tabela tr:hover {
+	background: #BEBEBE;
+}
+
+

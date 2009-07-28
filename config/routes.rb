@@ -1,15 +1,18 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :categories, 
-								:collection => { :chart => :get } do |category|
 
+#  map.resources :categories, 
+#	  						 :collection => { :chart => :get } do |category|
+
+
+  map.resources :categories do |category|
 		  category.resources :subcategories do |subcategory|
 			  subcategory.resources :items
 			end
-
 	end
 	
 	map.resources :year_result
-
+	map.resources :charge_chart
+	map.resources :categories_chart
 
   # The priority is based upon order of creation: first created -> highest priority.
 

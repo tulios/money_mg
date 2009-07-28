@@ -2,36 +2,16 @@
 
 <h3>Para <%= Date.current.month %>/<%= Date.current.year %></h3>
 
-<%= link_to 'Gráfico: para onde vai o meu dinheiro?', {:action=>"chart"} %>
+<%= link_to 'Gráfico: para onde vai o meu dinheiro?', charge_chart_index_path %>
+<br />
+<%= link_to 'Gráfico: por categorias', categories_chart_index_path %>
+<br />
+<br />
 
-<table>
+<%= render :partial => 'balance' %>
+
+<table width="100%">
 <% if @categories.length > 0 %>
-	<tr class="income">
-		<td align="left">Total de receitas:</td>
-		<td colspan="4" align="right">
-			<strong><%= currency(@sum_income) %></strong>
-		</td>
-	</tr>
-	<tr class="charge">
-		<td align="left">Total de despesas:</td>
-		<td colspan="4" align="right">
-			<strong><%= currency(@sum_charge) %></strong>
-		</td>
-	</tr>
-	<tr class="balance">
-		<td align="left">Saldo:</td>
-			<td align="right" colspan="4">
-			<% if @balance < 0 %>
-				<span style="color: #B22222;">
-			<% end %>
-				<strong><%= currency(@balance) %></strong>
-			</span>
-		</td>
-	</tr>
-
-	<tr>
-		<td><br /></td>
-	</tr>
 
 	<% @categories.each do |category| %>
 		<% if category.income? %>
@@ -39,14 +19,15 @@
 		<% else %>
 		<tr class="charge">
 		<% end %>
-		  <td><%=h category.name %></td>
+		  <td width="15%"><%=h category.name %></td>
 		  <td><%= link_to 'Editar', edit_category_path(category) %></td>
 		  <td><%= link_to 'Apagar', category, :confirm => 'Are you sure?', :method => :delete %></td>
 			<td>
 				<%= link_to 'Nova subcategoria', 
 										 new_category_subcategory_path(category.id), :class => "add_subcategory" %>
 			</td>
-			<td align="right">
+
+			<td align="right" width="15%">
 				<strong><%= currency(category.sum) %></strong>
 			</td>
 		</tr>
@@ -59,3 +40,9 @@
 	<tr>
 <% end %>
 </table>
+
+
+<br />
+<br />
+
+

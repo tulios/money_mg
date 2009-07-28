@@ -2,7 +2,7 @@
 	<% subcategory.items.each do |item| %>
 		<tr>
 			<td colspan="2"></td>
-			<td class="items">
+			<td class="items" align="right">
 				<%= link_to (image_tag 'icons/delete_16.png', :border => 0), 
 						{:action => :destroy, :controller => "items", :id => item.id}, 
              :confirm => 'Are you sure?', :method => :delete %>

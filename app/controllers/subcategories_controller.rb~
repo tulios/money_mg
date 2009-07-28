@@ -1,4 +1,8 @@
 class SubcategoriesController < ApplicationController
+
+	def chart
+	end
+
   # GET /subcategories
   # GET /subcategories.xml
   def index
@@ -78,7 +82,7 @@ class SubcategoriesController < ApplicationController
     @subcategory.destroy
 
     respond_to do |format|
-      format.html { redirect_to(subcategories_url) }
+      format.html { redirect_to categories_path }
       format.xml  { head :ok }
     end
   end

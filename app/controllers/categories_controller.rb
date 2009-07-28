@@ -1,9 +1,5 @@
 class CategoriesController < ApplicationController
 
-	def chart
-		@charge_categories = Category.find_all_by_income(false)
-	end
-
   # GET /categories
   # GET /categories.xml
   def index

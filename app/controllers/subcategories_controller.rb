@@ -1,4 +1,5 @@
 class SubcategoriesController < ApplicationController
+
   # GET /subcategories
   # GET /subcategories.xml
   def index
