@@ -114,3 +114,9 @@ Processing CategoriesController#index (for 127.0.0.1 at 2009-07-26 12:49:00) [GE
 Rendering template within layouts/application
 Rendering categories/index
 Completed in 161ms (View: 120, DB: 17) | 200 OK [http://localhost/categories]
+
+
+Processing CategoriesController#index (for ::1 at 2009-10-02 20:37:31) [GET]
+Rendering template within layouts/application
+Rendering categories/index
+Completed in 179ms (View: 40, DB: 7) | 200 OK [http://localhost/]
