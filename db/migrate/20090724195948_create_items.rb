@@ -4,7 +4,9 @@ class CreateItems < ActiveRecord::Migration
       t.belongs_to :subcategory
       t.string :name
       t.text :description
-      t.date :date
+      t.date :date, :null => false    
+      t.integer :year, :null => false
+      t.integer :month, :null => false
       t.float :value
 
       t.timestamps

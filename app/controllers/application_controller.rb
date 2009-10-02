@@ -9,6 +9,20 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  
+  def get_year(hash)
+    if hash[:year].nil? or hash[:year].length == 0
+        return Date.current.year
+    end       
+    hash[:year]
+  end                 
+  
+  def get_month(hash)
+    if hash[:month].nil? or hash[:month].length == 0
+        return Date.current.month
+    end       
+    hash[:month]
+  end
 
 	def currency_to_number(currency)
   	return currency.gsub(/[\.]/, '').gsub(/[,]/, '.').gsub(/[A-Z]/, '').gsub(/[$]/, '').gsub(/[\s]/, '').to_f

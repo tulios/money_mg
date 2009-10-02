@@ -2,8 +2,16 @@ class CategoriesController < ApplicationController
 
   # GET /categories
   # GET /categories.xml
-  def index
-    @categories = Category.all(:order => "income desc")
+  def index                   
+    @year = get_year(params)                                     
+    @month = get_month(params)
+    
+    @categories = Category.all(:order => "income desc") 
+    
+    itens = Item.find_all_by_month_and_year(@month, @year)
+    hash = Item.generate_hash_by_subcategory_id(itens)
+    Category.fill_subcategories_with_itens(@categories, hash)
+    
 		@sum_income = Category.sum_income_or_charge(@categories, true)
 		@sum_charge = Category.sum_income_or_charge(@categories, false)
 		@balance = @sum_income - @sum_charge

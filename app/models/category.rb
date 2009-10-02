@@ -29,16 +29,54 @@ class Category < ActiveRecord::Base
 
 		end
 		sum
-	end
-
-	def self.find_by_all_months(categories)
-		categories.each do |category|
-			category.subcategories = Subcategory.find_by_all_months_of_year(category.subcategories)
-		end
-		categories
+	end  
+	   
+	# Preenche os itens das subcategorias de cada categoria a partir
+	# de um hash com os itens indexado pelo id da subcategoria.
+	# params:            
+	# => []: categories (Array de categorias)
+	# => {}: hash_itens (Hash de itens indexado pelo id da subcategoria)
+	def self.fill_subcategories_with_itens(categories, hash_itens)    
+    if categories
+      
+      categories.each do |category|
+        category.subcategories.each do |subcategory|
+          subcategory.items = hash_itens[subcategory.id]
+        end
+      end
+      
+    end    
+    
 	end
 	
 end
+                                                                      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

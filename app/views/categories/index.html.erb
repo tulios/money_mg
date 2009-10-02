@@ -1,10 +1,16 @@
 <h1>Lista de categorias</h1>
+             
+<% form_tag categories_path , :method => :get do %>
+	<h3> 
+		Para <%= select_tag(:month, options_for_select(1..12, @month)) %> / 
+		<%= select_tag(:year, options_for_select((Date.current.year - 5)..(Date.current.year + 5), @year)) %>
+		<%= submit_tag 'alterar' %>
+	</h3>
+<% end %>
 
-<h3>Para <%= Date.current.month %>/<%= Date.current.year %></h3>
-
-<%= link_to 'Gráfico: para onde vai o meu dinheiro?', charge_chart_index_path %>
+<%= link_to 'Gráfico: para onde vai o meu dinheiro?', charge_chart_index_path(:year => @year, :month => @month) %>
 <br />
-<%= link_to 'Gráfico: por categorias', categories_chart_index_path %>
+<%= link_to 'Gráfico: por categorias', categories_chart_index_path(:year => @year, :month => @month) %>
 <br />
 <br />
 

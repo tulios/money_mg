@@ -22,7 +22,9 @@ ActiveRecord::Schema.define(:version => 20090724195948) do
     t.integer  "subcategory_id"
     t.string   "name"
     t.text     "description"
-    t.date     "date"
+    t.date     "date", :null => false
+    t.integer  "year", :null => false
+    t.integer  "month", :null => false
     t.float    "value"
     t.datetime "created_at"
     t.datetime "updated_at"

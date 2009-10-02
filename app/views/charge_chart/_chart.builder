@@ -1,5 +1,5 @@
 options = {
-	:caption => "Para onde vai o meu dinheiro? #{Date.current.month}/#{Date.current.year}",
+	:caption => "Para onde vai o meu dinheiro? #{@month}/#{@year}",
 	:showNames => 1,
 	:decimalPrecision => 2,
 	:numberPrefix => "R$ ",

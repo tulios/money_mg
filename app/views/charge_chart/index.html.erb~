@@ -1,3 +1,0 @@
-<% str_xml = render "categories/pie.builder" # O xml é obtido como uma string do builder template. %>
-<% render_chart '/FusionCharts/FCF_Pie3D.swf' , '' , str_xml , '' ,  800 ,  600 ,  false ,  false do -%>
-<%  end -%>

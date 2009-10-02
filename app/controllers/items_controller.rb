@@ -47,6 +47,12 @@ class ItemsController < ApplicationController
     @item = Item.new(params[:item])
 		@item.value = currency_to_number(params[:item][:value])
 		@item.subcategory = Subcategory.find(params[:subcategory_id])		
+                                  
+    year = Formater::extract_year(@item.date)
+    month = Formater::extract_month(@item.date)
+    
+    @item.year = year
+    @item.month = month
 
     respond_to do |format|
       if @item.save
