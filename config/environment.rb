@@ -4,10 +4,10 @@
 RAILS_GEM_VERSION = '2.3.3' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
-require File.join(File.dirname(__FILE__), 'boot')
-           
-# Métodos formatadores
-require "#{File.dirname(__FILE__)}/../lib/utils/formater"
+require File.join(File.dirname(__FILE__), 'boot')       
+                 
+# Todos os arquivos extras do money mg             
+require File.join("#{File.dirname(__FILE__)}/../lib/money_mg", 'money_mg')
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
@@ -15,7 +15,7 @@ Rails::Initializer.run do |config|
   # -- all .rb files in that directory are automatically loaded.
 
   # Add additional load paths for your own custom dirs
-  # config.load_paths += %W( #{RAILS_ROOT}/extras )
+  #config.load_paths += %W( #{RAILS_ROOT}/extras )
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"
@@ -43,3 +43,25 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   config.i18n.default_locale = "pt-BR"
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

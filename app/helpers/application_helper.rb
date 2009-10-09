@@ -1,6 +1,8 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-	
+	# Incluindo as classes extras do money mg
+  include MoneyMg
+  
 	def currency(value)
 		number_to_currency(value, :unit => "R$", :format => "%u %n")
 	end
